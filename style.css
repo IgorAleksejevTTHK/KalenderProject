@@ -1,41 +1,100 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #eef2f7;
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.container {
-    max-width: 900px;
-    margin: auto;
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-h1 {
-    color: #2b579a;
-    text-align: center;
-}
-
-h2 {
-    margin-top: 25px;
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #2b579a, #4facfe);
     color: #333;
 }
 
-p {
-    line-height: 1.6;
+/* HEADER */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+    animation: fadeIn 1s ease-in-out;
 }
 
-ul {
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header p {
+    opacity: 0.9;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: slideUp 0.6s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+    color: #2b579a;
+}
+
+.card ul {
     margin-left: 20px;
 }
 
+/* IMAGE */
 img {
     width: 100%;
-    max-width: 600px;
-    display: block;
+    max-width: 650px;
     margin: 15px auto;
-    border-radius: 8px;
+    display: block;
+    border-radius: 10px;
+}
+
+/* HIGHLIGHT */
+.highlight {
+    border-left: 5px solid #2b579a;
+    background: #f0f6ff;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    opacity: 0.8;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
