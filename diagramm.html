@@ -3,446 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Microsoft Project – Diagrammide loomine</title>
+  <title> Diagrammide kasutamine ProjectLibre's</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy:   #0d1b2a;
-      --blue:   #1a4e8c;
-      --sky:    #2d7dd2;
-      --accent: #f0a500;
-      --purple: #6a3fa0;
-      --light:  #f4f7fc;
-      --white:  #ffffff;
-      --text:   #1e2d3d;
-      --muted:  #6b7c93;
-      --border: #dce5f0;
-      --radius: 10px;
-    }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--light);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    nav {
-      background: var(--navy);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 20px rgba(0,0,0,.35);
-    }
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      padding: 0 24px;
-    }
-    .nav-brand {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1rem;
-      color: var(--white);
-      text-decoration: none;
-      padding: 18px 0;
-      margin-right: 32px;
-      letter-spacing: .03em;
-      white-space: nowrap;
-    }
-    .nav-brand span { color: var(--accent); }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2px;
-      flex-wrap: wrap;
-    }
-    nav ul li a {
-      display: block;
-      font-size: .88rem;
-      font-weight: 500;
-      color: rgba(255,255,255,.75);
-      text-decoration: none;
-      padding: 18px 16px;
-      border-bottom: 3px solid transparent;
-      transition: color .2s, border-color .2s, background .2s;
-    }
-    nav ul li a:hover {
-      color: var(--white);
-      background: rgba(255,255,255,.06);
-    }
-    nav ul li a.active {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #12103a 0%, #2a1a5e 50%, #1a4e8c 100%);
-      padding: 64px 24px 56px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .hero-tag {
-      display: inline-block;
-      background: rgba(240,165,0,.18);
-      color: var(--accent);
-      font-family: 'Syne', sans-serif;
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 50px;
-      margin-bottom: 18px;
-    }
-    .hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.2;
-      margin-bottom: 14px;
-    }
-    .hero p {
-      color: rgba(255,255,255,.7);
-      font-size: 1rem;
-      max-width: 580px;
-      margin: 0 auto;
-      line-height: 1.65;
-    }
-
-    main {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 48px 24px 80px;
-    }
-
-    /* diagram type cards */
-    .diag-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin: 22px 0;
-    }
-    .diag-card {
-      background: var(--white);
-      border: 2px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 18px;
-      text-align: center;
-      transition: border-color .2s, box-shadow .2s;
-    }
-    .diag-card:hover {
-      border-color: var(--sky);
-      box-shadow: 0 4px 14px rgba(45,125,210,.12);
-    }
-    .diag-card .icon { font-size: 2rem; margin-bottom: 8px; }
-    .diag-card .diag-name {
-      font-family: 'Syne', sans-serif;
-      font-size: .92rem;
-      font-weight: 700;
-      color: var(--blue);
-      margin-bottom: 4px;
-    }
-    .diag-card .diag-desc {
-      font-size: .8rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .section-card {
-      background: var(--white);
-      border-radius: 14px;
-      box-shadow: 0 2px 18px rgba(13,27,42,.07);
-      padding: 36px 40px;
-      margin-bottom: 32px;
-    }
-    .section-card h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--blue);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .section-card h2 .step-num {
-      background: var(--sky);
-      color: #fff;
-      font-size: .8rem;
-      font-weight: 800;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .section-card p {
-      font-size: .95rem;
-      line-height: 1.72;
-      color: var(--text);
-      margin-bottom: 14px;
-    }
-    .section-card p:last-child { margin-bottom: 0; }
-
-    .img-block {
-      margin: 22px 0;
-      background: linear-gradient(135deg, #e8eef8 0%, #d4e0f0 100%);
-      border: 2px dashed var(--border);
-      border-radius: var(--radius);
-      min-height: 200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      color: var(--muted);
-      font-size: .85rem;
-      text-align: center;
-      padding: 24px;
-    }
-    .img-block img {
-      max-width: 100%;
-      max-height: 340px;
-      border-radius: 6px;
-      display: none;
-    }
-    .img-block .placeholder-icon { font-size: 2.4rem; line-height: 1; }
-    .img-block .placeholder-label { font-weight: 500; }
-
-    .tip-box {
-      background: #fff8e6;
-      border-left: 4px solid var(--accent);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 14px 18px;
-      margin: 18px 0;
-      font-size: .9rem;
-      line-height: 1.65;
-      color: #5a4400;
-    }
-    .tip-box strong { color: #7a5c00; }
-
-    .info-box {
-      background: #f0eafc;
-      border-left: 4px solid var(--purple);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 14px 18px;
-      margin: 18px 0;
-      font-size: .9rem;
-      line-height: 1.65;
-      color: #2e1a50;
-    }
-
-    ol.steps {
-      padding-left: 0;
-      list-style: none;
-      counter-reset: steps;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    ol.steps li {
-      counter-increment: steps;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      font-size: .93rem;
-      line-height: 1.65;
-    }
-    ol.steps li::before {
-      content: counter(steps);
-      background: var(--blue);
-      color: #fff;
-      font-family: 'Syne', sans-serif;
-      font-size: .75rem;
-      font-weight: 700;
-      min-width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 1px;
-      flex-shrink: 0;
-    }
-
-    .video-ref {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #e8f0fc;
-      color: var(--blue);
-      border-radius: 6px;
-      padding: 8px 14px;
-      font-size: .88rem;
-      font-weight: 500;
-      text-decoration: none;
-      margin-top: 10px;
-      transition: background .2s;
-    }
-    .video-ref:hover { background: #d0e0f8; }
-
-    footer {
-      text-align: center;
-      padding: 24px;
-      font-size: .82rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      background: var(--white);
-    }
-  </style>
+ <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-brand" href="index.html">MS <span>Project</span></a>
+    <a class="nav-brand" href="index.html">Project <span>Libre</span></a>
     <ul>
       <li><a href="index.html">📅 Uue kalendri loomine</a></li>
-      <li><a href="valem.html">🔢 Arvutusvälja lisamine</a></li>
       <li><a href="diagramm.html" class="active">📊 Diagrammide loomine</a></li>
     </ul>
   </div>
 </nav>
 
-<div class="hero">
-  <div class="hero-tag">Microsoft Project – Õpetus</div>
-  <h1>Diagrammide loomine Projectis</h1>
-  <p>Visuaalsed vaated ja diagrammid aitavad projekti arengut, ressursside kasutust ning ülesannete sõltuvusi selgelt esitleda ja analüüsida.</p>
-</div>
 
-<main>
 
   <a class="video-ref" href="https://www.youtube.com/watch?v=iTpoBlkR0OE" target="_blank" rel="noopener">
     ▶ Vaata õpetuse videot YouTube'is
   </a>
 
-  <div class="section-card" style="margin-top:28px;">
-    <h2><span class="step-num">1</span>Diagrammide tüübid MS Projectis</h2>
-    <p>Microsoft Project pakub mitmeid sisseehitatud vaateid, mis toimivad diagrammidena ning aitavad projekti erinevaid aspekte visualiseerida:</p>
-    <div class="diag-grid">
-      <div class="diag-card">
-        <div class="icon">📊</div>
-        <div class="diag-name">Gantt Chart</div>
-        <div class="diag-desc">Ülesannete ajakava ribana ajaloonas</div>
-      </div>
-      <div class="diag-card">
-        <div class="icon">🔷</div>
-        <div class="diag-name">Network Diagram</div>
-        <div class="diag-desc">Ülesannete sõltuvuste võrgustik</div>
-      </div>
-      <div class="diag-card">
-        <div class="icon">📈</div>
-        <div class="diag-name">Resource Graph</div>
-        <div class="diag-desc">Ressursside koormuse graafik</div>
-      </div>
-      <div class="diag-card">
-        <div class="icon">🗓️</div>
-        <div class="diag-name">Calendar View</div>
-        <div class="diag-desc">Ülesanded kalendrikujul</div>
-      </div>
-    </div>
-    <div class="img-block">
-      <span class="placeholder-icon">🖼️</span>
-      <span class="placeholder-label">Pildilõige: MS Projecti vaadete menüü (View ribbon)</span>
-      <span>(Lisa siia oma ekraanipilt)</span>
-    </div>
-  </div>
+<main class="container">
+    <section class="card">
+        <h2>Gantt-diagrammi vaatamine</h2>
+        <p>
+            Gantt-diagrammi avamiseks liigu vahekaardile Task ja vali sealt Gantt.
+        </p>
+        <img src="diagrpic/gantt1.png" alt="Kalendri loomine">
+    </section>
+    <section class="card">
+        <h2> Gantt-diagramm</h2>
+        <p>
+            Ekraanile kuvatakse projekt koos Gantt-diagrammiga. Vasakul asuvas tabelis saad lisada ja muuta ülesandeid ning allülesandeid, paremal pool on näha visuaalne ajakava koos päevade arvuga.
+        </p>
+        <img src="diagrpic/gantt2.png" alt="Tööaegade muutmine">
+    </section>
+    <section class="card">
+        <h2>Resource Usage avamine</h2>
+        <p>
+            Ressursside graafikute vaatamiseks navigeeri vahekaardile Views ja vali sealt Resource Usage.
+        </p>
+        <img src="diagrpic/res1.png" alt="Kalendri kasutamine">
+    </section>
 
-  <div class="section-card">
-    <h2><span class="step-num">2</span>Gantt-diagrammi kohandamine</h2>
-    <p>Gantt Chart on MS Projecti põhivaade, mis kujutab ülesandeid horisontaalsete ribadena ajaloonel. Diagrammi saab kohandada Gantt Chart Wizard'i abil.</p>
-    <ol class="steps">
-      <li>Veendu, et oled <strong>Gantt Chart</strong> vaates (View → Gantt Chart).</li>
-      <li>Klõpsa menüüribal <strong>Format</strong>.</li>
-      <li>Vali <strong>Gantt Chart Style</strong> – siit saad muuta ribade värve ja stiili.</li>
-      <li>Klõpsa <strong>Format → Bar Styles</strong>, et määrata erinevate ülesandetüüpide (summary, milestone, normal) väljanägemine.</li>
-      <li>Teksti kuvamiseks ribade kõrval vali <strong>Format → Bar</strong> ja seadista <em>Left/Right/Top/Bottom/Inside</em> tekstiväljad.</li>
-    </ol>
-    <div class="img-block">
-      <span class="placeholder-icon">🖼️</span>
-      <span class="placeholder-label">Pildilõige: Gantt-diagramm koos kohandatud ribavärvidega</span>
-      <span>(Lisa siia oma ekraanipilt)</span>
-    </div>
-    <div class="tip-box">
-      <strong>💡 Nõuanne:</strong> Kriitilise tee kuvamiseks mine <strong>Format → Critical Tasks</strong> ja luba <em>Show Critical Path</em>. Kriitilised ülesanded kuvatakse punaselt.
-    </div>
-  </div>
-
-  <div class="section-card">
-    <h2><span class="step-num">3</span>Network Diagram – sõltuvuste kaart</h2>
-    <p>Network Diagram (tuntud ka kui PERT-diagramm) kuvab ülesandeid kastidena, mis on ühendatud nooltega vastavalt sõltuvustele. See aitab mõista projekti loogilist ülesehitust.</p>
-    <ol class="steps">
-      <li>Mine <strong>View → Network Diagram</strong>.</li>
-      <li>Iga ülesanne kuvatakse kastina, mis sisaldab nime, ID-d, kestust ja vastutajat.</li>
-      <li>Kastide paigutuse muutmiseks mine <strong>Format → Layout</strong>.</li>
-      <li>Kasti sisu kohandamiseks paremklõpsa kastil → <strong>Box Styles</strong>.</li>
-      <li>Uute sõltuvuste loomiseks lohista ühe kasti servast teisele.</li>
-    </ol>
-    <div class="img-block">
-      <span class="placeholder-icon">🖼️</span>
-      <span class="placeholder-label">Pildilõige: Network Diagram vaade ülesannete sõltuvustega</span>
-      <span>(Lisa siia oma ekraanipilt)</span>
-    </div>
-    <div class="info-box">
-      🔷 <strong>Kriitilise tee tuvastamine:</strong> Tumedamate servadega kastid Network Diagram vaates tähistavad kriitilise tee ülesandeid – need on ülesanded, mille hilinemine lükkab edasi kogu projekti lõppkuupäeva.
-    </div>
-  </div>
-
-  <div class="section-card">
-    <h2><span class="step-num">4</span>Ressursikasutuse graafik</h2>
-    <p>Resource Graph näitab visuaalselt, kuidas ressursid on ajas jaotunud. See aitab tuvastada ülekoormuse ja alakasutuse perioode.</p>
-    <ol class="steps">
-      <li>Mine <strong>View → Resource Graph</strong>.</li>
-      <li>Ülekoormatud ressursid kuvatakse punaste tulpadega.</li>
-      <li>Kasuta all-vasakul olevaid nooli ressursside vahel liikumiseks.</li>
-      <li>Muuda kuvataavat ajaühikut: <strong>View → Timescale</strong> → vali päevad, nädalad jne.</li>
-      <li>Ülekoormuse lahendamiseks kasuta <strong>Resource → Level All</strong> automaatseks tasandamiseks.</li>
-    </ol>
-    <div class="img-block">
-      <span class="placeholder-icon">🖼️</span>
-      <span class="placeholder-label">Pildilõige: Resource Graph – tulpdiagramm ressursikoormusega</span>
-      <span>(Lisa siia oma ekraanipilt)</span>
-    </div>
-    <div class="tip-box">
-      <strong>💡 Nõuanne:</strong> Ressursi vaates saab kuvada tunde, tööühikuid, kulusid või ülejäänud töömahtu – vaheta <strong>Format → Details</strong> alt soovitud näitaja.
-    </div>
-  </div>
-
-  <div class="section-card">
-    <h2><span class="step-num">5</span>Vaate eksportimine ja jagamine</h2>
-    <p>Valmis diagramme ja vaateid saab eksportida teistele jagamiseks mitmel viisil:</p>
-    <ol class="steps">
-      <li><strong>Kopeeri pildina:</strong> Vali <strong>Task → Copy → Copy Picture</strong>, et kopeerida aktiivne vaade lõikelauale pildina.</li>
-      <li><strong>Prindi:</strong> <strong>File → Print</strong> – saad valida prinditava vaate ja ajaulatuse.</li>
-      <li><strong>Ekspordi PDF:</strong> <strong>File → Export → Create PDF/XPS Document</strong>.</li>
-      <li><strong>Salvesta pildina:</strong> Kleebi kopeeritud pilt Paint, Word või PowerPoint programmi ja salvesta.</li>
-    </ol>
-    <div class="img-block">
-      <span class="placeholder-icon">🖼️</span>
-      <span class="placeholder-label">Pildilõige: Copy Picture dialoogaken</span>
-      <span>(Lisa siia oma ekraanipilt)</span>
-    </div>
-    <div class="info-box">
-      📤 <strong>Jagamisnõuanne:</strong> Kasuta <em>Copy Picture</em> funktsiooni, kui soovid diagrammi lisada esitlusse – see loob täpse ekraanipildi hetkel kuvatavast vaatest koos kõigi kohanduste ja värvistustega.
-    </div>
-  </div>
-
+        <section class="card highlight">
+        <h2>Resource Usage diagramm</h2>
+        <p>
+           Avanevas vaates on loetletud kõik projektis kasutatavad ressursid — nii materiaalsed kui ka inimressursid. Iga ressursi kohta on näha tööaeg ning ülesanded, millega ta on seotu
+            <img src="diagrpic/res2.png" alt="Kalendri kasutamine">
+        </p>
+   
+    </section>
+        </section>
+        <section class="card highlight">
+        <h2>Kalender töötab</h2>
+        <p>
+            <img src="pics/img6.png" alt="Kalendri kasutamine">
+        </p>
+   
+    </section>
 </main>
+
 
 <footer>
   Microsoft Project – Õpetusveebisait &nbsp;|&nbsp; Loodud õppeotstarbel
