@@ -39,21 +39,3 @@ ProjectLibre on tasuta alternatiiv Microsoft Projectile, mis võimaldab hallata 
 
 ---
 
-## 📋 Task list
-
-- [x] Create project
-- [x] Define start date
-- [x] Add 20+ tasks
-- [x] Create subtasks
-- [x] Set durations
-- [x] Link tasks (dependencies)
-- [x] Use calendar
-- [x] Review Gantt chart
-
----
-
-## 🔗 Ülesannete seosed
-
-```text
-Task 1 → Task 2 → Task 3
-Finish-to-Start (FS)
