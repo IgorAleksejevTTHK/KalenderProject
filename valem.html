@@ -316,30 +316,25 @@
   </a>
 
   <div class="section-card" style="margin-top:28px;">
-    <h2><span class="step-num">1</span>Mis on kohandatud arvutusväli?</h2>
-    <p>Microsoft Project võimaldab lisada tabelitesse <strong>kohandatud välju</strong> (Custom Fields), milles saab kasutada valemeid. See tähendab, et väli arvutab oma väärtuse automaatselt muude väljade põhjal – näiteks kulude protsentuaalne kõrvalekalle eelarvest, ülesande kestuse suhe kogu projekti kestusesse jne.</p>
-    <p>Kohandatud väljad võivad sisaldada teksti, arve, kuupäevi, lipukesi (flag) või graafilisi indikaatoreid. Valemeid toetavad kõik numrilised ja kuupäevatüüpi väljad.</p>
+    <h2><span class="step-num">1</span>Kohandatud välja avamine
+</h2>
+    <p>Minge vahekaardile Project ja valige Custom Fields..</p>
     <div class="img-block">
       <span class="placeholder-icon">🖼️</span>
       <span class="placeholder-label">Pildilõige: Custom Fields dialoogaken MS Projectis</span>
-      <span>(Lisa siia oma ekraanipilt)</span>
+      <img src="valem1.png" alt="valem1">
     </div>
   </div>
 
   <div class="section-card">
-    <h2><span class="step-num">2</span>Kohandatud välja avamine</h2>
-    <p>Arvutusvälja lisamiseks ava dialoogaken <strong>Custom Fields</strong> järgmiselt:</p>
-    <ol class="steps">
-      <li>Klõpsa menüüribal <strong>Project</strong>.</li>
-      <li>Vali <strong>Custom Fields</strong> (grupis "Properties").</li>
-      <li>Avaneb dialoogaken, kus on kuvatud kõik olemasolevad kohandatud väljad tüüpide kaupa (Text, Number, Cost, Duration, Date jne).</li>
-      <li>Vali vasakust rippmenüüst sobiv välja tüüp, nt <strong>Number</strong>.</li>
-      <li>Klõpsa soovitud väljal (nt <em>Number1</em>) ja seejärel nupul <strong>Rename…</strong>, et anda väljale arusaadav nimi.</li>
-    </ol>
+    <h2><span class="step-num">2</span>Välja tüübi valimine</h2>
+    <p>Valige välja tüüp (nt Cost) ja klõpsake Rename, et anda väljale nimi.</p>
+     
+    
     <div class="img-block">
       <span class="placeholder-icon">🖼️</span>
       <span class="placeholder-label">Pildilõige: Project → Custom Fields menüüvalik</span>
-      <span><img src="valem1.png" alt=""></span>
+      <img src="valem2.png" alt="valem2">
     </div>
   </div>
 
@@ -352,18 +347,10 @@
     <div class="formula-block">
       IIf([Cost]&gt;0, ([Actual Cost]/[Cost])*100, 0)
     </div>
-    <p>Valemites saad kasutada:</p>
-    <ol class="steps">
-      <li>MS Projecti sisseehitatud välju nurksulgudes, nt <strong>[Cost]</strong>, <strong>[Duration]</strong>, <strong>[% Complete]</strong>.</li>
-      <li>Matemaatilisi operaatoreid: <code>+ - * /</code></li>
-      <li>Tingimusfunktsioone: <code>IIf(tingimus, tõene, väär)</code></li>
-      <li>Tekstifunktsioone: <code>Left(), Right(), Len()</code></li>
-      <li>Kuupäevafunktsioone: <code>DateDiff(), Now(), ProjDateAdd()</code></li>
-    </ol>
     <div class="img-block">
       <span class="placeholder-icon">🖼️</span>
       <span class="placeholder-label">Pildilõige: Formula aken koos sisestatud valemiga</span>
-      <span><img src="valem2.png" alt=""></span>
+     <img src="valem3.png" alt="valem3">
     </div>
     <div class="info-box">
       ✅ Pärast valemi sisestamist klõpsa <strong>OK</strong>. MS Project küsib, kas soovid eemaldada olemasolevad väärtused – vali <strong>Yes</strong>, et valem hakkaks kehtima.
@@ -371,32 +358,13 @@
   </div>
 
   <div class="section-card">
-    <h2><span class="step-num">4</span>Graafiliise indikaatori seadistamine</h2>
-    <p>Arvutusvälja saab kuvada ka graafiliste ikoonidena (nt rohelised/kollased/punased ringid), mis annavad visuaalse ülevaate projekti staatusest. Selleks kasuta nuppu <strong>Graphical Indicators…</strong> dialoogiaknas Custom Fields.</p>
-    <ol class="steps">
-      <li>Vali oma loodud arvutusväli ja klõpsa <strong>Graphical Indicators…</strong></li>
-      <li>Lisa reale tingimus, nt <em>väärtus &lt; 90 → roheline ring</em>.</li>
-      <li>Lisa järgmine rida: <em>väärtus 90–100 → kollane ring</em>.</li>
-      <li>Lisa: <em>väärtus &gt; 100 → punane ring</em>.</li>
-      <li>Klõpsa <strong>OK</strong> ja kinnita muudatused.</li>
-    </ol>
+    <h2><span class="step-num">4</span>Välja lisamine vaatesse
+</h2>
+    <p>Paremklõpsake veeru päisel, valige Insert Column ja leidke oma kohandatud väli.</p>
     <div class="img-block">
       <span class="placeholder-icon">🖼️</span>
       <span class="placeholder-label">Pildilõige: Graphical Indicators seaded</span>
-      <span><img src="valem3.png" alt=""></span>
-    </div>
-  </div>
-
-  <div class="section-card">
-    <h2><span class="step-num">5</span>Välja lisamine Gantt-vaatesse</h2>
-    <p>Loodud arvutusväli tuleb lisada tabelisse, et seda näha. Paremklõpsa mõnel veeru päisel Gantt Chart vaates ning vali <strong>Insert Column</strong>. Kirjuta otsingusse oma välja nimi – see kuvatakse nüüd tabelis automaatselt arvutatud väärtustega.</p>
-    <div class="img-block">
-      <span class="placeholder-icon">🖼️</span>
-      <span class="placeholder-label">Pildilõige: Arvutusväli lisatud Gantt-tabeli veeruna</span>
-      <span><img src="valem4.png" alt=""></span>
-    </div>
-    <div class="tip-box">
-      <strong>💡 Vihje:</strong> Arvutusväljad on projekti-spetsiifilised – need salvestuvad koos .mpp failiga ega kandu automaatselt teistesse projektidesse. Kasuta Enterprise Custom Fields (Project Server) ühise kasutuse jaoks.
+     <img src="valem4.png" alt="valem4">
     </div>
   </div>
 
