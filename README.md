@@ -6,13 +6,12 @@
 
 ## 📋 Sisukord
 
-- [Projekti ülevaade](#projekti-ülevaade)
-- [Projekti eesmärgid](#-projekti-eesmärgid)
+- [Projekti ülevaade](#-projekti-ülevaade)
 - [Rakendatud funktsioonid](#-rakendatud-funktsioonid)
 - [Projekti etapid](#-projekti-etapid)
 - [Tehtu nimekiri](#-tehtu-nimekiri)
+- [Ekraanipildid](#-ekraani-pildid)
 - [Koodinäide](#-koodinäide)
-- [Ekraanipildid](#-ekraanipildid)
 
 ---
 
