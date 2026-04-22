@@ -6,7 +6,7 @@
 
 ## 📋 Sisukord
 
-- [Projekti ülevaade](#-projekti-ülevaade)
+- [Projekti ülevaade](#projekti-ülevaade)
 - [Projekti eesmärgid](#-projekti-eesmärgid)
 - [Rakendatud funktsioonid](#-rakendatud-funktsioonid)
 - [Projekti etapid](#-projekti-etapid)
