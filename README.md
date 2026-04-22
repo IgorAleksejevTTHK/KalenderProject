@@ -1,40 +1,91 @@
 # 📊 KalenderProject – MS Project
 
-Projekt on loodud eesmärgiga õppida professionaalset projektihaldust, kasutades tarkvara **Microsoft Project**.
+> Professionaalne projektiplaneerimine ja haldus Microsoft Project tarkvara abil.
 
 ---
 
-## 📌 Projekti ülevaade
+## 📋 Sisukord
 
-Selles harus on koostatud põhjalik projektiplaan, mis rakendab MS Projecti võimekust:
-
-- **Ülesannete struktuur (WBS)** – tegevuste hierarhiline süstematiseerimine.
-- **Gantti diagramm** – ajakava dünaamiline visualiseerimine.
-- **Kriitiline tee (Critical Path)** – projekti kestust mõjutavate kriitiliste tegevuste analüüs.
-- **Ressursside haldus** – tööjõu, seadmete ja materjalide määramine ülesannetele.
-
-Microsoft Project on valdkonna standardtarkvara, mis pakub süvitsi minevat analüütikat, aruandlust ja täielikku kontrolli projekti elutsükli üle.
-
----
-
-## 🎯 Projekti eesmärk
-
-- Omandada oskused tööstusstandardi tarkvara (MS Project) kasutamiseks.
-- Koostada dünaamiline plaan, mis reageerib automaatselt muudatustele.
-- Kasutada **kohandatud kalendreid** tööaja, riigipühade ja erandite määramiseks.
-- Mõista ülesannete piiranguid (*Constraints*) ja erinevaid seoste tüüpe.
+- [Projekti ülevaade](#-projekti-ülevaade)
+- [Projekti eesmärgid](#-projekti-eesmärgid)
+- [Rakendatud funktsioonid](#-rakendatud-funktsioonid)
+- [Projekti etapid](#-projekti-etapid)
+- [Tehtu nimekiri](#-tehtu-nimekiri)
+- [Koodinäide](#-koodinäide)
+- [Ekraanipildid](#-ekraanipildid)
 
 ---
 
-## 🧩 Projekti etapid MS Projectis
+## 📖 Projekti ülevaade
 
-1. **Projekti seadistamine** – üldandmete ja planeerimise parameetrite määramine.
-2. **Kalendri loomine** – tööaja seadistamine ja erandite (pühad) lisamine (*Change Working Time*).
-3. **Ülesannete sisestamine** – tegevuste loendi loomine ja automaatplaneerimise (*Auto Schedule*) aktiveerimine.
-4. **Struktureerimine** – taanderea (*Indent*) kasutamine faaside ja alamülesannete loomiseks.
-5. **Kestuste ja tähiste määramine** – tähtaegade ja verstapostide (*Milestones*) paika panemine.
-6. **Sõltuvuste seadmine** – ülesannete vaheliste seoste loomine (FS, SS, FF, SF) ja viitajad.
-7. **Ressursside haldus** – ressursside lehe täitmine ja nende määramine ülesannetele.
-8. **Analüüs ja baasplaan** – baasplaani (*Set Baseline*) salvestamine, et jälgida hilisemaid kõrvalekaldeid.
+See projekt keskendub MS Projecti võimekuse maksimaalsele rakendamisele. Erinevalt tavalisest tabelarvutusest võimaldab see dünaamilist planeerimist, kus üks muudatus ahelas korrigeerib automaatselt kogu projekti lõppkuupäeva.
+
+Põhifookus on suunatud:
+1. **WBS** – Hierarhiline ülesannete süsteem.
+2. **Kriitiline tee** – Projekti riskipunktide tuvastamine.
+3. **Ressursihaldus** – Tööjõu ja materjalide optimeerimine.
 
 ---
+
+## ✨ Rakendatud funktsioonid
+
+### 📅 Kalendrihaldus
+- Kohandatud tööaja seadistamine (`Change Working Time`).
+- Riigipühade ja ettevõtte erandite lisamine projektikalendrisse.
+
+### 🔗 Dünaamilised seosed
+- Nelja tüüpi seoste kasutamine: `FS`, `SS`, `FF`, `SF`.
+- Automaatplaneerimise režiimi (`Auto Schedule`) rakendamine kõikidele ülesannetele.
+
+### 📉 Analüütika
+- **Baseline** – Algse plaani salvestamine võrdluseks.
+- **Gantt Chart** – Visuaalne ülevaade ajakavast ja verstapostidest.
+
+---
+
+## 🧩 Projekti etapid
+
+1. **Seadistamine** – Projekti alguspunkti ja parameetrite määramine.
+2. **Struktureerimine** – Taanderea (`Indent`) abil faaside loomine.
+3. **Sõltuvused** – Ülesannete vaheliste loogiliste seoste loomine.
+4. **Baasplaan** – Projekti kinnitamine (`Set Baseline`).
+
+---
+
+## ✅ Tehtu nimekiri
+
+- [x] Projekti üldinfo ja kalendri seadistamine
+- [x] Ülesannete loendi ja WBS struktuuri loomine
+- [x] Kestuste ja verstapostide (*Milestones*) määramine
+- [x] Ülesannete vaheliste seoste ja viitajate lisamine
+- [x] Ressursside lehe täitmine ja määramine
+- [x] Kriitilise tee analüüs ja baasplaani salvestamine
+- [x] Dokumentatsiooni koostamine `README.md` failina
+
+---
+
+## 📊 Failide tabel
+
+| Fail | Kirjeldus | Funktsioon |
+|------|-----------|------------|
+| `Project.mpp` | MS Project fail | Peamine projektihaldusfail |
+| `README.md` | Dokumentatsioon | Projekti kirjeldus ja etapid |
+| `images/` | Ekraanipildid | Visuaalne tõestus tehtud tööst |
+
+---
+
+## 💻 Koodinäide
+
+Näide sellest, kuidas MS Project käsitleb automaatset planeerimist ja seoseid (loogiline struktuur):
+
+```xml
+<Task>
+  <Name>Vundamendi valamine</Name>
+  <Duration>5d</Duration>
+  <Predecessor>ID-1 (FS)</Predecessor>
+  <IsCritical>True</IsCritical>
+  <Calendar>Eesti_Töökalender</Calendar>
+</Task>
+🖼 Ekraanipildid
+<img width="1025" height="838" alt="{A88F9DF0-D7A7-4748-9A2E-03B987EB2BC6}" src="[https://github.com/user-attachments/assets/88b6dfcb-a2f8-48c2-a621-52d93bb37a28](https://github.com/IgorAleksejevTTHK/KalenderProject/blob/main/libre-kalender.png?raw=true)" />
+<img width="1148" height="912" alt="{E6B87A1D-76DC-421C-983F-86A3B203F779}" src="https://github.com/user-attachments/assets/0c57ebcb-1acf-4f32-bfa3-7f90c5d3d193" />
