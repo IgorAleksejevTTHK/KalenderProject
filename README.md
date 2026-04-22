@@ -73,10 +73,6 @@ Põhifookus on suunatud:
 | `images/` | Ekraanipildid | Visuaalne tõestus tehtud tööst |
 
 ---
-##Ekraani pildid
-![Project Libre Kalender](libre-kalender.png)
-![Project Libre Diagramm](libre-diagramm.png)
-
 ## 💻 Koodinäide
 
 Näide sellest, kuidas MS Project käsitleb automaatset planeerimist ja seoseid (loogiline struktuur):
