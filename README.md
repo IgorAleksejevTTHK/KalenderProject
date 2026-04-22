@@ -73,6 +73,9 @@ Põhifookus on suunatud:
 | `images/` | Ekraanipildid | Visuaalne tõestus tehtud tööst |
 
 ---
+##Ekraani pildid
+![Project Libre Kalender](libre-kalender.png)
+![Project Libre Diagramm](libre-diagramm.png)
 
 ## 💻 Koodinäide
 
@@ -86,6 +89,4 @@ Näide sellest, kuidas MS Project käsitleb automaatset planeerimist ja seoseid 
   <IsCritical>True</IsCritical>
   <Calendar>Eesti_Töökalender</Calendar>
 </Task>
-🖼 Ekraanipildid
-<img width="1025" height="838" alt="{A88F9DF0-D7A7-4748-9A2E-03B987EB2BC6}" src="[https://github.com/user-attachments/assets/88b6dfcb-a2f8-48c2-a621-52d93bb37a28](https://github.com/IgorAleksejevTTHK/KalenderProject/blob/main/libre-kalender.png?raw=true)" />
-<img width="1148" height="912" alt="{E6B87A1D-76DC-421C-983F-86A3B203F779}" src="https://github.com/user-attachments/assets/0c57ebcb-1acf-4f32-bfa3-7f90c5d3d193" />
+
